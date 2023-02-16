@@ -75,9 +75,11 @@ Accessing the localhost server
 ```
 
   click the above link to display the created Twitter scraping web app
-## Screenshots
+## Screenshots:
 
 [![Phonepe-data-visualisation.png](https://i.postimg.cc/x1Q2Z4CG/Phonepe-data-visualisation.png)](https://postimg.cc/VdKpr4X5)
+
+## Demo:
 Here's My demo video  of the project
 in linkedin's profile
 
