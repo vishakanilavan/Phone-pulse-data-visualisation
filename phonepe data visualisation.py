@@ -49,13 +49,13 @@ TopRegistrations_statewise_df=pd.read_sql('topusers_allindia',engine)
 TopTransactions_pincodewise_df=pd.read_sql('toptransactions_pincodewise',engine)
 TopRegistrations_pincodewise_df=pd.read_sql('topusers_pincodewise',engine)
 
-st.title("Phonepe Pulse Data:loudspeaker:") 
+st.title(":violet[Phonepe Pulse Data:loudspeaker:]") 
 tab1,tab2,tab3=st.tabs([':currency_exchange: Transactions',' :man-man-boy: Registered Users',':iphone: Brands'])        
                                          
                                       #Choropleth map for transactions
 #__________________________________________________________________________________________________________________________________________
 with tab1:
-    st.subheader('Total Transactions (2018-2022):heavy_dollar_sign:')
+    st.subheader(':violet[Total Transactions (2018-2022):heavy_dollar_sign:]')
 
     #Preprocessing data for creating map
     india_state=json.load(open('C:/Users/Admin PC/myJson.geojson','r')) #loading geojsonfile
@@ -101,7 +101,7 @@ with tab1:
     st.plotly_chart(fig)
                                         # Transactions Data(statewise)
 #-------------------------------------------------------------------------------------------------------------------------------------
-    st.subheader('Transctions Analysis Statewise:moneybag:')
+    st.subheader(':violet[Transctions Analysis Statewise:moneybag:]')
     col1,col2=st.columns(2)
     with col1:
         year=st.selectbox("Year",Transactions_statewise_df['Year'].unique(),key='yr1')
@@ -116,7 +116,7 @@ with tab1:
     st.plotly_chart(fig)  
                                          # Transaction Data of particular state(Yearwise)
 #--------------------------------------------------------------------------------------------------------------------------------------
-    st.subheader('Transaction Data of state over years :point_down:')
+    st.subheader(':violet[Transaction Data of state over years :point_down:]')
     col3,col4=st.columns(2)
     with col3:
         state=st.selectbox("Select the state",Transactions_statewise_df['State_name'].unique(),key='s1') 
@@ -134,7 +134,7 @@ with tab1:
 
                                                     # Transaction Mode 
 #--------------------------------------------------------------------------------------------------------------------------------------
-    st.subheader('Transaction mode proportions :money_with_wings')
+    st.subheader(':violet[Transaction mode proportions :money_with_wings]')
     col7,col8=st.columns(2)
     with col7:
         year1=st.selectbox("Select the Year",TransactionsMode_statewise_df['Year'].unique(),key='yr2')
@@ -151,7 +151,7 @@ with tab1:
               
 #------------------------------------------------------------------------------------------------------------------------------------------
 with tab2:
-    st.subheader('Registered Users of Phonepe For particular Quarter and Year :man-man-boy-boy: ')
+    st.subheader(':violet[Registered Users of Phonepe For particular Quarter and Year :man-man-boy-boy:] ')
     col9,col10=st.columns(2)
     with col9:
         year2=st.selectbox("Year",Registrations_statewise_df['Year'].unique(),key='yr_3')
@@ -165,7 +165,7 @@ with tab2:
     fig.update_traces(textfont_size=12, textangle=0, textposition="outside", cliponaxis=False)
     st.plotly_chart(fig)
     
-    st.subheader('Registered Users of state over Years :point_down:')
+    st.subheader(':violet[Registered Users of state over Years :point_down:]')
     col11,col12=st.columns(2)
     with col11:
         state2=st.selectbox("Select the state",Registrations_statewise_df['State_name'].unique(),key='st_3') 
@@ -184,7 +184,7 @@ with tab2:
 # -----------------------------------------------------------------------------------------------------------------------------------
 
 with tab3:
-    st.subheader('Mobile Brand share for particular state :calling:')
+    st.subheader(':violet[Mobile Brand share for particular state :calling:]')
     col13,col14=st.columns(2)
     with col13:
         year4=st.selectbox("Select the Year",BrandUsers_statewise_df['Year'].unique(),key='yr4')
@@ -198,7 +198,7 @@ with tab3:
                 labels={'Percentage of brand share for particular state and Year_quarter'})
     st.plotly_chart(fig)
 #--------------------------------------------------------------------------------------------------------------------------------------
-    st.subheader('Growth analysis of a Brand in all Over India :boom:')
+    st.subheader(':violet[Growth analysis of a Brand in all Over India :boom:]')
     col15,col16=st.columns(2)
     with col15:
         brand=st.selectbox("Select the state",BrandUsers_allindia_df['Brand_name'].unique(),key='br') 
@@ -212,7 +212,7 @@ with tab3:
                                                 #Top contents
 #------------------------------------------------------------------------------------------------------------------------------------------
 with st.sidebar:
-    st.header("Top Data:crown:")
+    st.header(":violet[Top Data:crown:]")
     option=st.selectbox("Select",('Registered Users','Transactions','Brands'),key='opt3')
     if option=='Registered Users':
         col17,col18=st.columns(2)
@@ -223,6 +223,7 @@ with st.sidebar:
         data_df=TopRegistrations_statewise_df[(TopRegistrations_statewise_df['Year']==year5) &                                 
                                             (TopRegistrations_statewise_df['Quarter']==quarter5)]
         data_df.drop(['index','Year','Quarter'],axis=1,inplace=True)
+        st.markdown("Top "+option+" :gem:")
         st.markdown(data_df[['State_name','Registered_Users']].style.hide(axis="index").to_html(), unsafe_allow_html=True)
     if option=='Transactions':
         col19,col20=st.columns(2)
@@ -235,6 +236,7 @@ with st.sidebar:
         data_df=TopTransactions_statewise_df[(TopTransactions_statewise_df['Year']==year6) &                                 
                                             (TopTransactions_statewise_df['Quarter']==quarter6)]
         data_df.drop(['index','Year','Quarter'],axis=1,inplace=True)
+        st.markdown("Top "+option+" :gem:")
         st.markdown(data_df[['State_name',choice2]].style.hide(axis="index").to_html(), unsafe_allow_html=True)
     if option=='Brands':
         col21,col22=st.columns(2)
@@ -248,11 +250,6 @@ with st.sidebar:
         data_df=data_df.sort_values(by=['Brand_Users'],ascending=False).head(5)
         st.markdown(data_df[['Brand_name','Brand_Users']].style.hide(axis="index").to_html(), unsafe_allow_html=True)
 
-
-
-
-
-# In[ ]:
 
 
 
