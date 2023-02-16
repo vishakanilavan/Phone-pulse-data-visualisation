@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[29]:
-
 import json
 import pymysql
 import pandas as pd
@@ -11,11 +6,6 @@ from sqlalchemy import create_engine
 import streamlit as st 
 import plotly.express as px
 import plotly.graph_objects as go
-
-
-# In[ ]:
-
-
 # To connect MySQL database
 conn = pymysql.connect(
 host='localhost',
@@ -26,11 +16,6 @@ password = "1234",
 # for sql library
 engine = create_engine('mysql+pymysql://root:1234@localhost:3306/phonepe',
 					echo = False)
-
-
-# In[17]:
-
-
 #Querying database from sql
 TransactionsMode_statewise_df =pd.read_sql('transactions_statewise',engine)
 BrandUsers_statewise_df=pd.read_sql('users_statewise',engine)
