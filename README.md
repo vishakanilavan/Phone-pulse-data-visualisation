@@ -82,11 +82,3 @@ Accessing the localhost server
 
 [![Phonepe-data-visualisation.png](https://i.postimg.cc/x1Q2Z4CG/Phonepe-data-visualisation.png)](https://postimg.cc/VdKpr4X5)
 
-## Demo:
-Here's My demo video  of the project
-in linkedin's profile
-
-https://www.linkedin.com/in/vishaka-nilavan-9345aa138/
-
-
-A brief description of functional work of this project.
