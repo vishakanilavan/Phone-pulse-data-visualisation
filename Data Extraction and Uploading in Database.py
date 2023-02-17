@@ -9,6 +9,9 @@
 import pandas as pd
 import json
 import os
+#importing sql library
+from sqlalchemy import create_engine
+import pymysql
 
 #This is to direct the path to get the data as states
 
@@ -364,7 +367,6 @@ for j in Agg_yr:
                 col['Quarter'].append(int(k.strip('.json')))# String after removing '.json' from 1.json
 df6_india=pd.DataFrame(col) 
 #------------------------------------------------------------------------------------------------------------------------------------------ 
-import pymysql
 
 # To connect MySQL database
 conn = pymysql.connect(
@@ -377,9 +379,6 @@ conn = pymysql.connect(
 #cur = conn.cursor()
 #creating new database
 #cur.execute('CREATE DATABASE phonepe') #For starting up only 
-
-importing sql library
-from sqlalchemy import create_engine
 
 # create a reference for sql library
 engine = create_engine('mysql+pymysql://root:1234@localhost:3306/phonepe',echo = False)
